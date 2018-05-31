@@ -10,7 +10,7 @@ class PracticeLogController < ApplicationController
 
 	# get route
 	get '/' do
-		practicelogs = practicelog.all
+		practicelogs = Practicelog.all
 		{
 			success: true,
 			message: "Here are all #{practicelogs.length} practicelogs.",
@@ -20,7 +20,7 @@ class PracticeLogController < ApplicationController
 
 	# show route
 	get '/:id' do
-		shown_practicelog = practicelog.find params[:id]
+		shown_practicelog = Practicelog.find params[:id]
 		{
 			success: true,
 			message: "Here is more information about #{shown_practicelog.name}",
@@ -30,7 +30,7 @@ class PracticeLogController < ApplicationController
 
 	# create route
 	post '/' do
-		new_practicelog = practicelog.new
+		new_practicelog = Practicelog.new
 		new_practicelog.goals = @payload[:goals]
 		new_practicelog.time_practiced = @payload[:time_practiced]
 		new_practicelog.date_practiced = @payload[:date_practiced]
@@ -46,7 +46,7 @@ class PracticeLogController < ApplicationController
 
 	# edit route
 	put '/:id' do
-		updated_practicelog = practicelog.find params[:id]
+		updated_practicelog = Practicelog.find params[:id]
 		updated_practicelog.goals = @payload[:goals]
 		updated_practicelog.time_practiced = @payload[:time_practiced]
 		updated_practicelog.date_practiced = @payload[:date_practiced]
@@ -61,7 +61,7 @@ class PracticeLogController < ApplicationController
 
 	# delete route
 	delete '/:id' do
-		deleted_practicelog = practicelog.find params[:id]
+		deleted_practicelog = Practicelog.find params[:id]
 		deleted_practicelog.destroy
 		{
 			success: true,

@@ -6,10 +6,8 @@ CREATE DATABASE music_students;
 
 CREATE TABLE users(
 	id SERIAL PRIMARY KEY,
-	# we will use email in lieu of a username
 	email VARCHAR(256),
 	password_digest VARCHAR(256),
-	# only use all this other stuff below for registering
 	name VARCHAR(128),
 	school VARCHAR(128),
 	grade VARCHAR(128),
@@ -30,7 +28,7 @@ CREATE TABLE songs(
 	notes VARCHAR(256),
 	link_to_file VARCHAR(256),
 	link_to_performance VARCHAR(256),
-	user_id REFERENCES users(id) ON DELETE CASCADE
+	user_id INT REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE practicelogs(

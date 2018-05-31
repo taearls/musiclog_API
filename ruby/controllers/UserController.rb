@@ -11,7 +11,7 @@ class UserController < ApplicationController
 
 	# get route
 	get '/' do
-		users = user.all
+		users = User.all
 		{
 			success: true,
 			message: "Here are all #{users.length} users.",
@@ -21,17 +21,17 @@ class UserController < ApplicationController
 
 	# logout route
 	get '/logout' do
-		username = session[:username]
+		email = session[:email]
 		session.destroy
 		{
 			success: true,
-			message: "#{username} has logged out."
+			message: "#{email} has logged out."
 		}.to_json
 	end
 
 	# register route
 	post '/register' do
-		user = user.new
+		user = User.new
 		user.email = @payload[:email]
 		user.password = @payload[:password]
 		user.name = @payload[:name]
@@ -65,7 +65,7 @@ class UserController < ApplicationController
 
 		{
 			success: true,
-			message: "You are now registered as #{user.username}."
+			message: "You are now registered as #{user.email}."
 		}.to_json
 	end
 
@@ -74,7 +74,7 @@ class UserController < ApplicationController
 		email = @payload[:email]
 		password = @payload[:password]
 
-		user = user.find_by email: email
+		user = User.find_by email: email
 
 		if user && user.authenticate(password)
 			session[:logged_in] = true
@@ -94,30 +94,30 @@ class UserController < ApplicationController
 			{
 				success: true,
 				user_id: user.id,
-				username: username,
+				email: email,
 				message: "Login successful. Cookie created."
 			}.to_json
 		else
 			{
 				success: false,
-				message: "Invalid username or password."
+				message: "Invalid email or password."
 			}.to_json
 		end
 	end
 
 	# show route
 	get '/:id' do
-		shown_user = user.find params[:id]
+		shown_user = User.find params[:id]
 		{
 			success: true,
-			message: "Here's more information about #{shown_user.username}.",
+			message: "Here's more information about #{shown_user.email}.",
 			shown_user: shown_user
 		}.to_json
 	end
 
 	# edit route
 	put '/:id' do
-		updated_user = user.find params[:id]
+		updated_user = User.find params[:id]
 		updated_user.email = @payload[:email]
 		# not sure if this actually will update the password when they login, but it works in postman
 		updated_user.password_digest = @payload[:password]
@@ -137,18 +137,18 @@ class UserController < ApplicationController
 		
 		{
 			success: true,
-			message: "#{updated_user.username} successfully updated.",
+			message: "#{updated_user.email} successfully updated.",
 			updated_user: updated_user
 		}.to_json
 	end
 
 	# delete route
 	delete '/:id' do
-		deleted_user = user.find params[:id]
+		deleted_user = User.find params[:id]
 		deleted_user.destroy
 		{
 			success: true,
-			message: "#{deleted_user.username} successfully deleted."
+			message: "#{deleted_user.email} successfully deleted."
 		}.to_json
 	end
 end

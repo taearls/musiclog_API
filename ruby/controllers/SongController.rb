@@ -10,7 +10,7 @@ class SongController < ApplicationController
 
 	# get route
 	get '/' do
-		songs = song.all
+		songs = Song.all
 		{
 			success: true,
 			message: "Here are all #{songs.length} songs.",
@@ -20,7 +20,7 @@ class SongController < ApplicationController
 
 	# show route
 	get '/:id' do
-		shown_song = song.find params[:id]
+		shown_song = Song.find params[:id]
 		{
 			success: true,
 			message: "Here is more information about #{shown_song.name}",
@@ -30,7 +30,7 @@ class SongController < ApplicationController
 
 	# create route
 	post '/' do
-		new_song = song.new
+		new_song = Song.new
 		new_song.song_name = @payload[:song_name]
 		new_song.artist_name = @payload[:artist_name]
 		new_song.notes = @payload[:notes]
@@ -48,7 +48,7 @@ class SongController < ApplicationController
 
 	# edit route
 	put '/:id' do
-		updated_song = song.find params[:id]
+		updated_song = Song.find params[:id]
 		updated_song.song_name = @payload[:song_name]
 		updated_song.artist_name = @payload[:artist_name]
 		updated_song.notes = @payload[:notes]
@@ -65,7 +65,7 @@ class SongController < ApplicationController
 
 	# delete route
 	delete '/:id' do
-		deleted_song = song.find params[:id]
+		deleted_song = Song.find params[:id]
 		deleted_song.destroy
 		{
 			success: true,

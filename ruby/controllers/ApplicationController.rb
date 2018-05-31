@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
 
 	ActiveRecord::Base.establish_connection(
 		:adapter => 'postgresql',
-		:database => 'employer'
+		:database => 'music_students'
 	)
 	use Rack::Session::Cookie,	:key => 'rack.session',
 		:path => '/',
@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
 	get '/' do
 		{
 			success: false,
-			message: "Please consult the API documentation at: https://github.com/irwinx16/project3_API"
+			message: "Please consult the API documentation at: https://github.com/tboneearls/project4_API"
 		}.to_json
 	end
 
