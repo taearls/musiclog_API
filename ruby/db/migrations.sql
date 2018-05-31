@@ -7,9 +7,17 @@ CREATE DATABASE music_students;
 CREATE TABLE students(
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(128),
-	age INT,
-	notes VARCHAR(256),
-	lesson_times VARCHAR(256)
+	school VARCHAR(128),
+	grade INT,
+	email VARCHAR(256),
+	lesson_location VARCHAR(256),
+	student_phone VARCHAR(256),
+	text_student BOOLEAN,
+	parent_phone VARCHAR(256),
+	text_parent BOOLEAN,
+	lesson_day VARCHAR(256),
+	lesson_time VARCHAR(256),
+	additional_info VARCHAR(256)
 );
 
 CREATE TABLE songs(
