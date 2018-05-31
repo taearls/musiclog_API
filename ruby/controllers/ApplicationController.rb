@@ -30,13 +30,13 @@ class ApplicationController < Sinatra::Base
 		enable :cross_origin
 	end
 
-	set :allow_origin, :any # you can specifiy origins here, we'll just say any
+	set :allow_origin, :any # you can specify origins here, we'll just say any
 	set :allow_methods, [:get, :post, :options, :put, :patch, :delete]
 	set :allow_credentials, true # session info / API key enable
 
 	options '*' do
 		response.headers['Allow'] = 'HEAD, GET, POST, PUT, PATCH, DELETE'
-		response.headers['Access-Control-Allow-Origin'] = '*'
+		response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
 		response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
 	end
 

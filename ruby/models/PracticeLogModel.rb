@@ -1,3 +1,3 @@
-class PracticeLog < ActiveRecord::Base
+class Practicelog < ActiveRecord::Base
 	has_one :song
 end

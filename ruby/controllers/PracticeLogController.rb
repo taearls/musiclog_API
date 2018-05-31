@@ -1,4 +1,4 @@
-class PracticeLogController < ApplicationController
+class PracticelogController < ApplicationController
 
 	before do
     	payload_body = request.body.read
