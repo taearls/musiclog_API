@@ -94,7 +94,7 @@ class UserController < ApplicationController
 			{
 				success: true,
 				user_id: user.id,
-				email: email,
+				email: user.email,
 				message: "Login successful. Cookie created."
 			}.to_json
 		else
