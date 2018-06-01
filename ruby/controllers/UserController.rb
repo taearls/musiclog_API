@@ -34,17 +34,19 @@ class UserController < ApplicationController
 		user = User.new
 		user.email = @payload[:email]
 		user.password = @payload[:password]
-		user.name = @payload[:name]
-		user.school = @payload[:school]
-		user.grade = @payload[:grade]
-		user.student_phone = @payload[:student_phone]
-		user.text_student = @payload[:text_student]
-		user.parent_phone = @payload[:parent_phone]
-		user.text_parent = @payload[:text_parent]
-		user.lesson_location = @payload[:lesson_location]
-		user.lesson_day = @payload[:lesson_day]
-		user.lesson_time = @payload[:lesson_time]
-		user.additional_info = @payload[:additional_info]
+
+		# setting initial values for these so they aren't undefined in react
+		user.name = "N/A"
+		user.school = "N/A"
+		user.grade = "N/A"
+		user.student_phone = "N/A"
+		user.text_student = false
+		user.parent_phone = "N/A"
+		user.text_parent = false
+		user.lesson_location = "N/A"
+		user.lesson_day = "N/A"
+		user.lesson_time = "N/A"
+		user.additional_info = "N/A"
 
 		user.save
 
