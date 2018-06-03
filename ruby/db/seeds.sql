@@ -15,6 +15,6 @@ INSERT INTO songs (song_name, artist_name, notes, link_to_file, link_to_performa
 INSERT INTO songs (song_name, artist_name, notes, link_to_file, link_to_performance, user_id) VALUES ('G Major Scale', null, 'exercises based on the G Major scale', 'https://drive.google.com/open?id=1Bh4Af8DPACHEqHr2B0lqzW-KneCvhTHv', 'https://www.youtube.com/watch?v=XNNCdpMFJR0', 3);
 
 -- practicelogs data
-INSERT INTO practicelogs (goals, time_practiced, date_practiced, song_name, user_id) VALUES ('want to be able to play the top part', '2 hours', 'Tuesday', 'Roar', 1);
-INSERT INTO practicelogs (goals, time_practiced, date_practiced, song_name, user_id) VALUES ('want to hit the high notes', '3 hours', 'Monday', 'Radioactive', 2);
-INSERT INTO practicelogs (goals, time_practiced, date_practiced, song_name, user_id) VALUES ('want to work on the arpeggios', '2 hours', 'Wednesday', 'G Major Scale', 3);
+INSERT INTO practicelogs (song_name, goals, time_practiced, date_practiced, user_id) VALUES ('Roar', 'want to be able to play the top part', '2 hours', 'Tuesday', 1);
+INSERT INTO practicelogs (song_name, goals, time_practiced, date_practiced, user_id) VALUES ('Radioactive', 'want to hit the high notes', '3 hours', 'Monday', 2);
+INSERT INTO practicelogs (song_name, goals, time_practiced, date_practiced, user_id) VALUES ('G Major Scale', 'want to work on the arpeggios', '2 hours', 'Wednesday', 3);

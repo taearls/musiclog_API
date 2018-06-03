@@ -33,9 +33,9 @@ CREATE TABLE songs(
 
 CREATE TABLE practicelogs(
 	id SERIAL PRIMARY KEY,
+	song_name VARCHAR(128),
 	goals VARCHAR(256),
 	time_practiced VARCHAR(128),
 	date_practiced VARCHAR(128),
-	song_name VARCHAR(128),
 	user_id INT REFERENCES users(id) ON DELETE CASCADE
 );
