@@ -23,7 +23,7 @@ class SongController < ApplicationController
 		shown_song = Song.find params[:id]
 		{
 			success: true,
-			message: "Here is more information about #{shown_song.name}",
+			message: "Here is more information about #{shown_song.song_name}",
 			shown_song: shown_song
 		}.to_json
 	end
@@ -36,11 +36,12 @@ class SongController < ApplicationController
 		new_song.notes = @payload[:notes]
 		new_song.link_to_file = @payload[:link_to_file]
 		new_song.link_to_performance = @payload[:link_to_performance]
+		new_song.user_id = @payload[:user_id]
 
 		new_song.save
 		{
 			success: true,
-			message: "You have successfully hired #{new_song.name}.",
+			message: "You have successfully added #{new_song.song_name}.",
 			new_song: new_song
 		}.to_json
 
@@ -54,11 +55,12 @@ class SongController < ApplicationController
 		updated_song.notes = @payload[:notes]
 		updated_song.link_to_file = @payload[:link_to_file]
 		updated_song.link_to_performance = @payload[:link_to_performance]
+		updated_song.user_id = @payload[:user_id]
 
 		updated_song.save
 		{
 			success: true,
-			message: "You have successfully edited #{updated_song.name}.",
+			message: "You have successfully edited #{updated_song.song_name}.",
 			updated_song: updated_song
 		}.to_json
 	end
@@ -69,7 +71,7 @@ class SongController < ApplicationController
 		deleted_song.destroy
 		{
 			success: true,
-			message: "You have successfully fired #{deleted_song.name}.",
+			message: "You have successfully deleted #{deleted_song.song_name}.",
 			deleted_song: deleted_song
 		}.to_json
 	end
