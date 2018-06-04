@@ -31,9 +31,12 @@ class PracticelogController < ApplicationController
 	# create route
 	post '/' do
 		new_practicelog = Practicelog.new
+
+		new_practicelog.song_name = @payload[:song_name]
 		new_practicelog.goals = @payload[:goals]
 		new_practicelog.time_practiced = @payload[:time_practiced]
 		new_practicelog.date_practiced = @payload[:date_practiced]
+		new_practicelog.user_id = session[:user_id]
 
 		new_practicelog.save
 		{
@@ -47,6 +50,7 @@ class PracticelogController < ApplicationController
 	# edit route
 	put '/:id' do
 		updated_practicelog = Practicelog.find params[:id]
+		updated_practicelog.song_name = @payload[:song_name]
 		updated_practicelog.goals = @payload[:goals]
 		updated_practicelog.time_practiced = @payload[:time_practiced]
 		updated_practicelog.date_practiced = @payload[:date_practiced]
