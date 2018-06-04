@@ -23,7 +23,7 @@ class PracticelogController < ApplicationController
 		shown_practicelog = Practicelog.find params[:id]
 		{
 			success: true,
-			message: "Here is more information about #{shown_practicelog.name}",
+			message: "Here is more information about the practice log.",
 			shown_practicelog: shown_practicelog
 		}.to_json
 	end
@@ -36,12 +36,12 @@ class PracticelogController < ApplicationController
 		new_practicelog.goals = @payload[:goals]
 		new_practicelog.time_practiced = @payload[:time_practiced]
 		new_practicelog.date_practiced = @payload[:date_practiced]
-		new_practicelog.user_id = session[:user_id]
+		new_practicelog.user_id = @payload[:user_id]
 
 		new_practicelog.save
 		{
 			success: true,
-			message: "You have successfully hired #{new_practicelog.name}.",
+			message: "You have successfully created a new practice log.",
 			new_practicelog: new_practicelog
 		}.to_json
 
@@ -54,11 +54,12 @@ class PracticelogController < ApplicationController
 		updated_practicelog.goals = @payload[:goals]
 		updated_practicelog.time_practiced = @payload[:time_practiced]
 		updated_practicelog.date_practiced = @payload[:date_practiced]
+		updated_practicelog.user_id = @payload[:user_id]
 
 		updated_practicelog.save
 		{
 			success: true,
-			message: "You have successfully edited #{updated_practicelog.name}.",
+			message: "You have successfully edited the practice log.",
 			updated_practicelog: updated_practicelog
 		}.to_json
 	end
@@ -69,7 +70,7 @@ class PracticelogController < ApplicationController
 		deleted_practicelog.destroy
 		{
 			success: true,
-			message: "You have successfully fired #{deleted_practicelog.name}.",
+			message: "You have successfully deleted the practice log.",
 			deleted_practicelog: deleted_practicelog
 		}.to_json
 	end
