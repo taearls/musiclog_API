@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   database: music_students
-  email: <%= ENV['PG_USER'] %>
+  username: <%= ENV['PG_USER'] %>
   password: <%= ENV['PG_PASS'] %>
   host: localhost
 
@@ -12,7 +12,7 @@ production:
   pool: 5
   host: <%= ENV['DATABASE_HOST'] %>
   database: <%= ENV['DATABASE_NAME'] %>
-  email: <%= ENV['DATABASE_USER'] %>
+  username: <%= ENV['DATABASE_USER'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
 
 
