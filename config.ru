@@ -4,13 +4,13 @@ require 'sinatra/activerecord'
 # models
 require './models/UserModel'
 require './models/SongModel'
-require './models/PracticelogModel'
+require './models/PracticeLogModel'
 
 # controllers
 require './controllers/ApplicationController'
 require './controllers/UserController'
 require './controllers/SongController'
-require './controllers/PracticelogController'
+require './controllers/PracticeLogController'
 
 # routes
 map('/') {
