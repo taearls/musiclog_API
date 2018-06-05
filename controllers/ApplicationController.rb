@@ -30,7 +30,7 @@ class ApplicationController < Sinatra::Base
 		enable :cross_origin
 	end
 
-	set :allow_origin, :any # you can specify origins here, we'll just say any
+	set :allow_origin, :any # you can specifiy origins here, we'll just say any
 	set :allow_methods, [:get, :post, :options, :put, :patch, :delete]
 	set :allow_credentials, true # session info / API key enable
 
