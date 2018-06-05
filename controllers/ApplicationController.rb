@@ -3,12 +3,12 @@ class ApplicationController < Sinatra::Base
 	require 'bundler'
 	Bundler.require()
 
-	# require './config/environments'
+	require './config/environments'
 
-	ActiveRecord::Base.establish_connection(
-		:adapter => 'postgresql',
-		:database => 'music_students'
-	)
+	# ActiveRecord::Base.establish_connection(
+	# 	:adapter => 'postgresql',
+	# 	:database => 'music_students'
+	# )
 	use Rack::Session::Cookie,	:key => 'rack.session',
 		:path => '/',
 		:secret => 'your_secret'
@@ -36,7 +36,7 @@ class ApplicationController < Sinatra::Base
 
 	options '*' do
 		response.headers['Allow'] = 'HEAD, GET, POST, PUT, PATCH, DELETE'
-		response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+		response.headers['Access-Control-Allow-Origin'] = 'https://musiclog.herokuapp.com'
 		response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
 	end
 
