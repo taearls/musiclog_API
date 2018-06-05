@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
 	get '/' do
 		{
 			success: false,
-			message: "Please consult the API documentation at: https://github.com/tboneearls/project4_API"
+			message: "Please consult the API documentation at: https://github.com/tboneearls/musiclog_API"
 		}.to_json
 	end
 
