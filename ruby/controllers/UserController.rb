@@ -67,7 +67,8 @@ class UserController < ApplicationController
 
 		{
 			success: true,
-			message: "You are now registered as #{user.email}."
+			message: "You are now registered as #{user.email}.",
+			user_id: user.id
 		}.to_json
 	end
 
