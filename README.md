@@ -1,5 +1,5 @@
-# SongTrack API
-API I wrote for my final project, SongTrack, for GA's Web Development Immersive.
+# MusicLog API
+API I wrote for my final project, MusicLog, for GA's Web Development Immersive.
 
 ## How to Use the API
 
@@ -7,61 +7,61 @@ API I wrote for my final project, SongTrack, for GA's Web Development Immersive.
 
 #### Get Users
 
-https://songtrack-api.herokuapp.com/users
+https://musiclog-api.herokuapp.com/users
 
 #### Get Songs
 
-https://songtrack-api.herokuapp.com/songs
+https://musiclog-api.herokuapp.com/songs
 
 #### Get Practice Logs
 
-https://songtrack-api.herokuapp.com/practicelogs
+https://musiclog-api.herokuapp.com/practicelogs
 
 #### Log Out
 
-https://songtrack-api.herokuapp.com/logout
+https://musiclog-api.herokuapp.com/logout
 
 ### SHOW ROUTES (returns only the logged in user's information)
 
 #### Show Songs
 
-https://songtrack-api.herokuapp.com/songs/:id
+https://musiclog-api.herokuapp.com/songs/:id
 
 #### Show Practice Logs
 
-https://songtrack-api.herokuapp.com/practicelogs/:id
+https://musiclog-api.herokuapp.com/practicelogs/:id
 
 ### POST ROUTES
 
 #### Log In
 
-https://songtrack-api.herokuapp.com/login
+https://musiclog-api.herokuapp.com/login
 
 #### Register
 
-https://songtrack-api.herokuapp.com/register
+https://musiclog-api.herokuapp.com/register
 
 #### Add Song
 
-https://songtrack-api.herokuapp.com/songs
+https://musiclog-api.herokuapp.com/songs
 
 #### Add Practice Log
 
-https://songtrack-api.herokuapp.com/practicelogs
+https://musiclog-api.herokuapp.com/practicelogs
 
 ### DELETE ROUTES
 
 #### Delete User
 
-https://songtrack-api.herokuapp.com/users/:id
+https://musiclog-api.herokuapp.com/users/:id
 
 #### Delete Song
 
-https://songtrack-api.herokuapp.com/songs/:id
+https://musiclog-api.herokuapp.com/songs/:id
 
 #### Delete Practice Log
 
-https://songtrack-api.herokuapp.com/practicelogs/:id
+https://musiclog-api.herokuapp.com/practicelogs/:id
 
 ## DATA TABLES
 
